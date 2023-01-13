@@ -3,20 +3,21 @@ import Button from '../components/forms/button'
 import Input from '../components/forms/input'
 import * as Icon from 'react-feather'
 import banner from '../components/assets/images/banner.svg'
-import { Tomato, Imdb } from '../components/assets/icons/generated'
+import { Tomato, Imdb, Tv } from '../components/assets/icons/generated'
 
 const Hero = () => {
   return (
     <div className=' px-24 pt-[15px] h-[600px] p-4 relative'>
         <nav className='flex items-center justify-between py-2 absolute left-0 right-0 top-0 px-24 pt-6 z-10'>
-            <div>
-                <h2 className='text-mv-white'>Movix</h2>
+            <div className='flex items-center space-x-4'>
+                <Tv />
+                <h2 className='text-mv-white text-2xl font-bold'>Movix</h2>
             </div>
             <div className='w-2/4'>
                 <Input rightIcon={<Icon.Search style={{color: 'white'}} />} />
             </div>
             <div>
-                <h2 className='text-mv-white'>Hi, Noah Ogunderu</h2>
+                <h2 className='text-mv-white text-base font-bold'>Hi, Noah Ogunderu</h2>
             </div>
         </nav>
 
