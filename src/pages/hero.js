@@ -4,8 +4,13 @@ import Input from '../components/forms/input'
 import * as Icon from 'react-feather'
 import banner from '../components/assets/images/banner.svg'
 import { Tomato, Imdb, Tv } from '../components/assets/icons/generated'
+import { useGetMoviesQuery } from '../Api/apiSlice'
 
 const Hero = () => {
+
+    const { data } = useGetMoviesQuery()
+    console.log(data)
+
   return (
     <div className=' px-24 pt-[15px] h-[600px] p-4 relative'>
         <nav className='flex items-center justify-between py-2 absolute left-0 right-0 top-0 px-24 pt-6 z-10'>
@@ -46,7 +51,7 @@ const Hero = () => {
                 </p>
                 <Button children='Watch Trailer' imgBefore={<Icon.PlayCircle style={{
                     color: 'white'
-                }}/>} bgColor = 'bg-mv-red' rounded weight= 'font-bold' />
+                }}/>} bgColor = 'bg-mv-mainred' rounded weight= 'font-bold' />
             </section>
         </main>
 

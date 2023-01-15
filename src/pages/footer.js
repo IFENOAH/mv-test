@@ -3,7 +3,7 @@ import { FaceBook, Insta, Twitter, Youtube } from '../components/assets/icons/ge
 
 const Footer = () => {
   return (
-    <footer className='py-11 px-24 flex items-center justify-center flex items-center flex-col space-y-9'>
+    <footer className='p-11 px-24 flex items-center justify-center flex items-center flex-col space-y-9'>
         <div className='flex items-center space-x-12'>
             <FaceBook />
             <Insta />
