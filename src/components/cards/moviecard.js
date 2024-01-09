@@ -1,30 +1,37 @@
 import React, { useState } from 'react'
 import * as Icon from 'react-feather'
 import { Imdb, Tomato } from '../assets/icons/generated'
-import Poster from '../assets/images/Poster.svg'
 
-const MovieCard = () => {
+const baseUrl = 'https://image.tmdb.org/t/p/original/'
+
+const MovieCard = ({ poster, title, type }) => {
+
+    const backgroundImage = baseUrl + poster
 
     const [toggleLike, setToggleLike] = useState(false)
 
     const handleToggle = () => {
         setToggleLike(prev => !prev)
     }
-  return (
 
+  return (
     <main>
-        <div className='w-64 h-96' style={{
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            objectFit: "contain",
-            backgroundPosition : "center center",
-            backgroundImage: `url(${Poster})`
-        }}>
-            <header className='flex items-center justify-between p-5'>
-                <span className='bg-mv-gray rounded-full p-2 text-mv-black text-xs font-bold'>
+        <div className='relative'>
+            <img
+                style={{
+                    backgroundRepeat: "no-repeat",
+                    backgroundSize: "cover",
+                    objectFit: "contain",
+                    backgroundPosition : "center center",
+                }}
+                className=''
+                src={backgroundImage}
+            />
+            <header className='absolute top-0 w-full flex items-center justify-between p-5'>
+                <span className={` ${type === 'tv' ? 'block' : 'invisible'} flex justify-start bg-mv-gray rounded-full p-2 text-mv-black text-xs font-bold `}>
                     TV SERIES
                 </span>
-                <span className='bg-mv-gray rounded-full p-2'>
+                <span className='bg-mv-gray rounded-full p-2 flex items-end justify-end'>
                     <Icon.Heart onClick={handleToggle} stroke = '0px' style={{
                         fill: !toggleLike ? 'white' : '#EE4B2B',
                         cursor: 'Pointer'
@@ -34,7 +41,7 @@ const MovieCard = () => {
         </div>
         <section className='space-y-2'>
             <span className='font-bold text-mv-gray text-sm'>USA, 2017 - Current</span>
-            <p className='text-lg font-bold'>Dunkirk</p>
+            <p className='text-lg font-bold'>{title}</p>
             <div className='flex items-center space-x-6'>
                 <div className='flex items-center space-x-2'>
                     <Imdb />

@@ -1,6 +1,7 @@
-const API_KEY = "dceba89f82beeed0051e94ae47a9d408";
+export const API_KEY = "dceba89f82beeed0051e94ae47a9d408";
 
 export const requests = {
+    fetchNowPlaying: `/movie/now_playing?api_key=${API_KEY}&language=en-US&page=1`,
     fetchTrending:`/trending/all/week?api_key=${API_KEY}&language=en-US`,
     fetchOriginals:`/discover/tv?api_key=${API_KEY}&with_networks=213`,
     fetchTopRated:`/movie/top_rated?api_key=${API_KEY}&language==en-US`,
@@ -9,4 +10,5 @@ export const requests = {
     fetchHorrorMovies:`/discover/movie?api_key=${API_KEY}&with_genres=27`,
     fetchRomanceMovies:`/discover/movie?api_key=${API_KEY}&with_genres=10749`,
     fetchDocumentaries:`/discover/movie?api_key=${API_KEY}&with_genres=99`,
+    fetchCasts: `/movie/345/credits?api_key=${API_KEY}&language=en-US`
 };

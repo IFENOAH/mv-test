@@ -4,7 +4,7 @@ const Button = ({imgBefore, children, imgAfter, link, color, roundleft, roundrig
 
   return (
     <button className={`flex items-center justify-between ${link ? '' : 'bg-ricive-white'}
-      rounded-none space-x-4
+      rounded-md space-x-4 outline-none border-none
       ${main ? 'bg-mv-black' : bgColor}
       ${rounded ? 'rounded-lg' : ''}
       ${link ? '' : 'border border-ricive-stroke px-[20px]'} ${link ? '' : 'py-[10px]'}
