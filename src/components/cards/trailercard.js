@@ -1,15 +1,16 @@
 import React, { useState } from 'react'
-import FallBack from '../assets/images/fallback.png'
+import { PlayICon } from '../assets/generated'
+import FallBack from '../assets/images/banner.svg'
 
 const baseUrl = 'https://image.tmdb.org/t/p/original/'
 
-const CastCard = ({ poster, name }) => {
+export const TrailerCard = ({ poster, title }) => {
 
     const backgroundImage = baseUrl + poster
 
   return (
     <main className='space-y-4'>
-        <div className=''>
+        <div className='relative'>
             <img
                 style={{
                     backgroundRepeat: "no-repeat",
@@ -17,20 +18,19 @@ const CastCard = ({ poster, name }) => {
                     objectFit: "cover",
                     backgroundPosition : "",
                 }}
-                className='w-full h-[580px] bg-mv-main'
+                className='w-[900px] h-[280px]'
                 src={backgroundImage ?? FallBack}
                 onError={(e) => {
                     e.target.onerror = FallBack;
                     e.target.src =  FallBack;
                 }}
-                alt="cast"
+                alt="trailer-thumbnail"
             />
+        <PlayICon className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 right-0 cursor-pointer'/>
         </div>
         <section className='space-y-2'>
-            <p className='font-bold text-sm'>{name}</p>
+            <p className='font-bold text-lg'>{title}</p>
         </section>
     </main>
   )
 }
-
-export default CastCard

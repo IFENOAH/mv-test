@@ -28,7 +28,6 @@ export const MovieRow = ({ genre }) => {
         )
     }
 
-
     return (
         <div style={{width: "100%"}} className='styling-example sm:px-6'>
             <ReactElasticCarousel renderArrow={renderArrow} pagination={false} itemPadding={[5, 20]} ref={carouselRef} breakPoints={breakPoints} >

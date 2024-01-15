@@ -26,6 +26,7 @@ const MovieCard = ({ poster, title, type }) => {
                 }}
                 className=''
                 src={backgroundImage}
+                loading='eager'
             />
             <header className='absolute top-0 w-full flex items-center justify-between p-5'>
                 <span className={` ${type === 'tv' ? 'block' : 'invisible'} flex justify-start bg-mv-gray rounded-full p-2 text-mv-black text-xs font-bold `}>

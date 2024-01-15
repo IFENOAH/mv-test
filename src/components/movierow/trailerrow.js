@@ -1,34 +1,29 @@
 import { useLayoutEffect, useRef, useState } from "react";
-import { useGetCastsQuery, useGetMoviesQuery } from "../../Api/apiSlice";
+import { useGetMoviesQuery } from "../../Api/apiSlice";
 import { consts } from 'react-elastic-carousel';
 import { ArrowIcon } from '../assets/generated'
-import CastCard from '../cards/castcard'
 import ReactElasticCarousel from "react-carousel-elasticss";
 import '../../index.css'
+import { requests } from "../../Api/helper";
+import { TrailerCard } from "../cards/trailercard";
 
 const breakPoints = [
     { width: 1, itemsToShow: 1 },
     { width: 550, itemsToShow: 2, itemsToScroll: 2 },
-    { width: 768, itemsToShow: 2 },
-    { width: 1200, itemsToShow: 4 }
+    { width: 768, itemsToShow: 2.5 },
+    { width: 1200, itemsToShow: 2.5 }
 ];
 
-export const CastRow = () => {
-
-    const [id, setId] = useState(2996)
-
-    useLayoutEffect(() => {
-      setId(Math.floor(Math.random() * (513 - 488)) + 488)
-    }, [])
+export const TrailerRow = () => {
     
     const carouselRef = useRef();
-    const { data } = useGetCastsQuery({id: id});
+    const { data } = useGetMoviesQuery(requests.fetchTrailer);
 
     const renderArrow = ({ type, onClick, isEdge }) => {
         const pointer = type === consts.PREV ?  <ArrowIcon  style={{cursor: 'pointer'}} onClick={() => carouselRef.current.slidePrev()} /> 
         : <ArrowIcon  style={{transform: 'rotate(180deg)', cursor: "pointer"}} onClick={() => carouselRef.current.slideNext()} />
         return (
-            <button className='mb-40' onClick={onClick} disabled={isEdge}>
+            <button className='mb-10' onClick={onClick} disabled={isEdge}>
                 {pointer}
             </button>
         )
@@ -38,11 +33,11 @@ export const CastRow = () => {
     return (
         <div style={{width: "100%"}} className='styling-example sm:px-6'>
             <ReactElasticCarousel renderArrow={renderArrow} pagination={false} itemPadding={[5, 20]} ref={carouselRef} breakPoints={breakPoints} >
-            {data?.cast?.map((movie) => (
-                <CastCard
+            {data?.results?.map((movie) => (
+                <TrailerCard
                     key={movie.id}
-                    poster={movie.profile_path}
-                    name={movie.name || movie.original_name}
+                    poster={movie.backdrop_path}
+                    title={movie.name || movie.original_name || movie.original_title}
                 />
             ))}
             </ReactElasticCarousel>

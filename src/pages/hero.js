@@ -32,7 +32,7 @@ const Hero = () => {
     }, [data])
     
   return (
-    <div className='md:px-24 pt-[15px] h-[650px] p-4 relative'>
+    <div className='md:px-24 pt-[15px] h-[700px] p-4 relative'>
         <nav className='flex items-center justify-between py-2 absolute left-0 right-0 top-0 md:px-24 p-4 pt-6 z-10'>
             <div className='flex items-center space-x-4'>
                 <Tv />
@@ -50,7 +50,7 @@ const Hero = () => {
         <main className='absolute top-0 left-0 bottom-0 w-full h-full flex items-center justify-start px-4 md:px-24' style={{
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
-            objectFit: "contain",
+            objectFit: "cover",
             backgroundPosition : "center center",
             backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%), url(${base_url}${!isMonitor ? (movie?.backdrop_path && movie?.backdrop_path) : (movie?.poster_path && movie?.poster_path) })`
         }}>

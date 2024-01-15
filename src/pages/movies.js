@@ -1,8 +1,9 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import * as Icon from 'react-feather'
 import { requests } from '../Api/helper'
 import { CastRow } from '../components/movierow/castrow'
 import { MovieRow } from '../components/movierow/movieRow'
+import { TrailerRow } from '../components/movierow/trailerrow'
 
 const Movies = () => {
 
@@ -20,8 +21,13 @@ const Movies = () => {
       </section>
 
       <section className='space-y-10'>
-        <MovieHeader title='Casts' />
-        <CastRow genre={requests.fetchCasts} />
+        <MovieHeader title='Exclusive Videos' />
+        <TrailerRow />
+      </section>
+
+      <section className='space-y-10'>
+        <MovieHeader title='Featured Casts' />
+        <CastRow />
       </section>
       
     </main>

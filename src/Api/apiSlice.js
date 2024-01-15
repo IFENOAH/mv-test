@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { API_KEY } from './helper'
 
 export const apiSlice = createApi({
   baseQuery: fetchBaseQuery({
@@ -10,8 +11,17 @@ export const apiSlice = createApi({
         url: category,
         method: "GET",
       })
-    })
+    }),
+    getCasts: builder.query({
+      query:({id}) => ({
+        url: `/movie/${id}/credits?api_key=${API_KEY}&language=en-US`,
+        method: "GET",
+      })
+    }),
   })
 })
 
-export const { useGetMoviesQuery } = apiSlice
+export const { 
+  useGetMoviesQuery,
+  useGetCastsQuery,
+} = apiSlice
